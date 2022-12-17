@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { movieService } from '../../Service/movieService'
 import MovieList from './MovieList/MovieList';
+import MovieTabs from './MovieTabs/MovieTabs';
 
 export default function HomePage() {
   const [movieArr, setMovieArr] = useState([]);
@@ -17,6 +18,7 @@ export default function HomePage() {
     <div>
       <div className="container p-5">
         <MovieList movieArr={movieArr} />
+        <MovieTabs />
       </div>
     </div>
   )

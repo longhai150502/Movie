@@ -8,5 +8,13 @@ export const movieService = {
             method: "GET",
             headers: createConfig(),
         })
+    },
+
+    getPhimTheoHeThongRap: () => {
+        return axios({
+            url: `${BASE_URL}/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=GP05`,
+            method: "GET",
+            headers: createConfig(),
+        })
     }
 }

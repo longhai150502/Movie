@@ -1,7 +1,8 @@
+import { userLocalService } from "../../Service/localStorageService"
 import { SET_USER_INFOR } from "../constant/userContant"
 
 const initialState = {
-    userInfor: null,
+    userInfor: userLocalService.get(),
 }
 
 // eslint-disable-next-line import/no-anonymous-default-export
