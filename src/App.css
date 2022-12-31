@@ -1,4 +1,6 @@
-
+.App {
+  align-items: center;
+}
 
 .App-logo {
   height: 40vmin;

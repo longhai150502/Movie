@@ -16,5 +16,6 @@ export const movieService = {
             method: "GET",
             headers: createConfig(),
         })
-    }
+    },
+
 }

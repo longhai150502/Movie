@@ -10,5 +10,12 @@ export const userService  = {
             headers: createConfig(),
         })
     },
-
+    dangKi: (dataUser) => {
+        return axios({
+            url: `${BASE_URL}/api/QuanLyNguoiDung/DangKy`,
+            method: "POST",
+            data: dataUser,
+            headers: createConfig(),
+        })
+    }
 }

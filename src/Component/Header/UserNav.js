@@ -32,10 +32,7 @@ export default function UserNav() {
               <span class="relative text-black group-hover:text-white">Login{""}</span>
             </button>
           </NavLink>
-          <button class="group relative h-9 w-24 overflow-hidden rounded-lg bg-white text-lg shadow">
-            <div class="absolute inset-0 w-3 bg-amber-400 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
-            <span class="relative text-black group-hover:text-white">Register</span>
-          </button>
+          <NavLink to={`/dangki`} >Đăng kí</NavLink>
         </div>
       )
     }

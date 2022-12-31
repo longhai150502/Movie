@@ -1,36 +1,39 @@
 import React from 'react'
-import { Button, Checkbox, Form, Input, message } from 'antd';
-import { userService } from '../../Service/userService';
-import { useNavigate } from 'react-router-dom';
+import { Button, Checkbox, Form, Input} from 'antd';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { SET_USER_INFOR } from '../../redux/constant/userContant';
-import { userLocalService } from '../../Service/localStorageService';
 import animationLogin from '../../assets/72874-user-profile-v2.json';
 import Lottie from 'lottie-react';
+import { setLoginActionService } from '../../redux/actions/userAction';
 
 export default function LoginPage() {
     let navigate = useNavigate();
     let dispatch = useDispatch();
-    const onFinish = (values) => {
-        console.log('Success:', values);
-        userService.postDangNhap(values)
-        .then((res) => {
-          dispatch({
-            type: SET_USER_INFOR,
-            payload: res.data.content,
-          })
-            message.success("Dang nhap thanh cong");
-            userLocalService.set(res.data.content);
-            setTimeout(() => {
-                navigate('/');
-            }, 1000)
-        }).catch((err) => {
-            message.error("Dang nhap that bai");
-        });
-      };
-      const onFinishFailed = (errorInfo) => {
-        console.log('Failed:', errorInfo);
-      };
+    // const onFinish = (values) => {
+    //     console.log('Success:', values);
+    //     userService.postDangNhap(values)
+    //     .then((res) => {
+    //       dispatch(setLoginAction(res.data.content))
+    //         message.success("Đăng nhập thành công");
+    //         userLocalService.set(res.data.content);
+    //         setTimeout(() => {
+    //             navigate('/');
+    //         }, 1000)
+    //     }).catch((err) => {
+    //         message.error("Đăng nhập thất bại");
+    //     });
+    // };
+    const onFinishReduxThunk = (values) => {
+      let onSuccess = () => {
+        setTimeout(() => {
+            navigate('/');
+        }, 1000)
+      }
+      dispatch(setLoginActionService(values, onSuccess))
+    }
+    const onFinishFailed = (errorInfo) => {
+      console.log('Failed:', errorInfo);
+    };
   return (
     <div className='w-screen h-screen flex justify-center items-center'>
       <div className='container p-5 flex justify-center items-center'>
@@ -44,12 +47,12 @@ export default function LoginPage() {
             span: 8,
           }}
           wrapperCol={{
-            span: 24,
+            span: 16,
           }}
           initialValues={{
             remember: true,
           }}
-          onFinish={onFinish}
+          onFinish={onFinishReduxThunk}
           onFinishFailed={onFinishFailed}
           autoComplete="off"
           layout='vertical'
@@ -84,8 +87,7 @@ export default function LoginPage() {
             name="remember"
             valuePropName="checked"
             wrapperCol={{
-              offset: 8,
-              span: 24,
+              span: 16,
             }}
           >
             <Checkbox>Remember me</Checkbox>
@@ -93,13 +95,15 @@ export default function LoginPage() {
 
           <Form.Item
             wrapperCol={{
-              offset: 8,
-              span: 24,
+              span: 16,
             }}
           >
-            <Button className='bg-blue-600' htmlType="submit">
+            <Button className='bg-blue-600 text-white mr-3' htmlType="submit">
               Submit
             </Button>
+            <NavLink to={"/dangki"}>
+              <Button>Đăng kí</Button>
+            </NavLink>
           </Form.Item>
           </Form>
         </div>

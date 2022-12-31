@@ -1,5 +1,5 @@
 import { userLocalService } from "../../Service/localStorageService"
-import { SET_USER_INFOR } from "../constant/userContant"
+import { SET_SIGN_IN, SET_USER_INFOR } from "../constant/userContant"
 
 const initialState = {
     userInfor: userLocalService.get(),
@@ -10,8 +10,8 @@ export const userReducer = (state = initialState, { type, payload }) => {
   switch (type) {
 
   case SET_USER_INFOR:
-    return { ...state, userInfor:payload }
-
+    return { ...state, userInfor:payload };
+  
   default:
     return state
   }

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { movieService } from '../../../Service/movieService'
 import { Tabs } from 'antd';
-import { Avatar, List,} from 'antd';
+import { List } from 'antd';
+import MovieTabItem from './MovieTabItem';
 
 const onChange = (key) => {
   console.log(key);
@@ -38,34 +39,20 @@ export default function MovieTabs() {
                                             </div>
                                         </div>,
                                 key: cumRap.maCumRap,
-                                children: (
-                                    <div
-                                        id="scrollableDiv"
-                                        style={{
-                                            height: 500,
-                                            overflow: 'auto',
-                                        }}
-                                        >
-                                            <List
-                                            dataSource={cumRap.danhSachPhim}
-                                            renderItem={(phim) => (
-                                                <List.Item key={phim.maPhim}>
-                                                    <List.Item.Meta
-                                                        avatar={<Avatar className='object-cover' style={{width: 120, height: 120,}} src={phim.hinhAnh} />}
-                                                        title={phim.tenPhim}
-                                                        description={phim.lstLichChieuTheoPhim.map((lichChieu)=>{
-                                                            return (
-                                                                <div className='gird grid-cols-4 gap-4'>
-                                                                    <button>{lichChieu.ngayChieuGioChieu}</button>
-                                                                </div>
-                                                            )
-                                                        })}
-                                                    />
-                                                </List.Item>
-                                            )}
-                                            />
-                                        </div>
-                                ),
+                                children: 
+                                <List 
+                                    id="scrollableDiv" 
+                                    style={{
+                                        height: 650,
+                                        overflow: 'auto',
+                                        padding: '0 16px',
+                                        border: '1px solid rgba(140, 140, 140, 0.35)',
+                                    }}
+                                >
+                                    {cumRap.danhSachPhim.map((phim) => {
+                                        return <MovieTabItem movie={phim} />
+                                    })}
+                                </List>
                             };
                         })}
                     />
@@ -85,3 +72,5 @@ export default function MovieTabs() {
     </div>
   )
 }
+
+
