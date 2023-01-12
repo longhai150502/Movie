@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { movieService } from '../../Service/movieService'
+import AppMobile from './AppMobile/AppMobile';
+import Banner from './Banner/Banner';
 import MovieList from './MovieList/MovieList';
 import MovieNav from './MovieNav/MovieNav';
 import MovieTabs from './MovieTabs/MovieTabs';
@@ -16,10 +18,12 @@ export default function HomePage() {
     }, [])
   return (
     <div>
-      <div className="container p-5">
+      <div className="container">
+        <Banner />
         <MovieNav movieArr={movieArr} />
         <MovieList movieArr={movieArr} />
         <MovieTabs />
+        <AppMobile />
       </div>
     </div>
   )

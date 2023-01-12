@@ -29,21 +29,20 @@ export default function MovieTabs() {
                         tabPosition='left'
                         defaultActiveKey="1"
                         onChange={onChange}
-                        items = {heThongRap.lstCumRap.map((cumRap) => {
+                        items = {heThongRap.lstCumRap.slice(0,5).map((cumRap) => {
                             return {
-                                label:  <div className='flex justify-center items-center text-left'>
+                                label:  <div className='flex justify-center items-center text-left '>
                                             <img className='shadow shadow-black' style={{width: 80, height: 80}} src={cumRap.hinhAnh} alt="" />
                                             <div className='ml-2'>
                                                 <p>{cumRap.tenCumRap}</p>
-                                                <p>{cumRap.diaChi}</p>
                                             </div>
                                         </div>,
                                 key: cumRap.maCumRap,
                                 children: 
-                                <List 
+                                <List
                                     id="scrollableDiv" 
                                     style={{
-                                        height: 650,
+                                        height: 550,
                                         overflow: 'auto',
                                         padding: '0 16px',
                                         border: '1px solid rgba(140, 140, 140, 0.35)',
@@ -54,14 +53,14 @@ export default function MovieTabs() {
                                     })}
                                 </List>
                             };
-                        })}
+                        })}   
                     />
                 ),
             }
         })
     }
   return (
-    <div className='m-20 border-dashed border-2 border-indigo-600'>
+    <div id='movieTab' className='m-20 border-dashed border-2 border-indigo-600'>
         <Tabs
             tabPosition='left'
             defaultActiveKey="1"

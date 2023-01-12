@@ -1,0 +1,85 @@
+
+.booking::before {
+    content: '';
+    background: #000;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.55;
+}
+
+.dsGhe {
+    display: grid;
+    grid-template-columns: repeat(16, minmax(0, 1fr));
+}
+
+.activeSelected {
+    background: blue;
+}
+
+.gheVip {
+    background: yellow;
+}
+
+.ticket {
+    width: 400px;
+    height: 550px;
+    background-color: white;
+    position: relative;
+  }
+
+  .poster img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+  
+  .holes-lower {
+    position: relative;
+    margin: 15px;
+    border: 1px dashed #aaa;
+  }
+  
+  .cinema {
+    color: #aaa;
+    font-size: 20px;
+  }
+  
+  .movie-title {
+    font-size: 20px;
+  }
+  
+  .info {
+    padding: 15px 25px;
+  }
+  
+  table {
+    width: 100%;
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+  table tr {
+    margin-bottom: 10px;
+  }
+  table th {
+    text-align: left;
+  }
+  table th:nth-of-type(1) {
+    width: 38%;
+  }
+  table th:nth-of-type(2) {
+    width: 40%;
+  }
+  table th:nth-of-type(3) {
+    width: 15%;
+  }
+  table td {
+    width: 33%;
+    font-size: 15px;
+  }
+  
+  .bigger {
+    font-size: 15px;
+  }
+  
+  

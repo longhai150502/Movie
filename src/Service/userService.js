@@ -17,5 +17,14 @@ export const userService  = {
             data: dataUser,
             headers: createConfig(),
         })
+    },
+
+    datVe: (thongTinDatVe) => {
+        return axios({
+            url: `${BASE_URL}/api/QuanLyDatVe/DatVe`,
+            method: "POST",
+            data: thongTinDatVe,
+            headers: createConfig(),
+          });
     }
 }

@@ -1,5 +1,5 @@
 import { userLocalService } from "../../Service/localStorageService"
-import { SET_SIGN_IN, SET_USER_INFOR } from "../constant/userContant"
+import { SET_USER_INFOR } from "../constant/userContant"
 
 const initialState = {
     userInfor: userLocalService.get(),

@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+/* eslint-disable jsx-a11y/alt-text */
+import React from 'react'
 import { Card } from 'antd';
 import { NavLink } from 'react-router-dom';
 import Slider from "react-slick";
@@ -23,8 +24,8 @@ export default function MovieList({movieArr}) {
             {
               breakpoint: 1024,
               settings: {
-                slidesToShow: 4,
-                slidesToScroll: 4,
+                slidesToShow: 3,
+                slidesToScroll: 3,
                 infinite: true,
                 dots: true
               }
@@ -52,13 +53,13 @@ export default function MovieList({movieArr}) {
         return movieArr.map((item)=>{
             return (
               <div className="cards cards--two">
-                <img src={item.hinhAnh} className="img-responsive" alt="Cards Image"/>
+                <img src={item.hinhAnh} className="img-responsive"/>
                 <span className="cards--two__rect"></span>
                 <span className="cards--two__tri"><a href={`/detail/${item.maPhim}`}>Trailer</a> 
                 </span>
                 <ul className="cards__list">
-                  <li><NavLink to={`/detail/${item.maPhim}`}>Detail</NavLink></li>
-                  <li><a href="">Đặt vé</a></li>
+                  <li><NavLink to={`/detail/${item.maPhim}`}>Chi tiết</NavLink></li>
+                  <li><NavLink to={`/detail/${item.maPhim}`}>Đặt vé</NavLink></li>
                 </ul>
                 <p>{item.tenPhim}</p>
               </div>
@@ -66,7 +67,7 @@ export default function MovieList({movieArr}) {
         })
     }
   return (
-        <div className='bg-slate-300 py-10 px-56 mx-0 my-auto'>
+        <div id='movieList' className='relative py-10 px-56 mx-0 my-auto'>
             <Slider {...settings}>
                  {renderMovieList()}
             </Slider>

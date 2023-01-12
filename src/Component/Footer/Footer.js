@@ -6,7 +6,7 @@ import FooterTablet from './FooterTablet'
 
 export default function Footer() {
   return (
-    <div>
+    <div className='bottom-0 w-full '>
         <Desktop><FooterDesktop/></Desktop>
         <Tablet><FooterTablet/></Tablet>
         <Mobile><FooterMobile/></Mobile>
